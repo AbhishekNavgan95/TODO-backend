@@ -6,7 +6,10 @@ const todoRoutes = require("./routes/todoRoutes.js");
 const authRoutes = require("./routes/authRoutes.js");
 
 const cors = require("cors");
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 app.use(bodyParser.json());
 
 app.use("/", todoRoutes);
