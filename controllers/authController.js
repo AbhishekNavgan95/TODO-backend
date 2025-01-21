@@ -17,9 +17,13 @@ exports.getToken = (req, res) => {
 
     const token = jwt.sign({ email }, secretToken, { expiresIn: "1h" });
 
-    users.push({ email, firstName, lastName, gender, language });
+    const createdUser = { email, firstName, lastName, gender, language }
 
-    return res.status(200).json({ token, message: "User registered successfully" });
+    users.push(createdUser);
+
+    return res
+      .status(200)
+      .json({ data: createdUser, token, message: "User registered successfully" });
   } catch (e) {
     return res.status(500).json({ message: e.message });
   }
@@ -27,7 +31,9 @@ exports.getToken = (req, res) => {
 
 exports.getUsers = (req, res) => {
   try {
-    return res.status(200).json({ users, message: "Users retrieved successfully" });
+    return res
+      .status(200)
+      .json({ users, message: "Users retrieved successfully" });
   } catch (e) {
     return res.status(500).json({ message: e.message });
   }
