@@ -16,7 +16,7 @@ This endpoint allows users to register and get Authentication token.
 
 ## HTTP Method
 
-GET
+POST
 
 ## HTTP Route
 
@@ -104,6 +104,13 @@ GET
 
 ```
 {
+    "data": {
+        "fistName": "",
+        "lastName": "",
+        "email": "",
+        "gender": "",
+        "language": "",
+    }
     "token": "",
     "message": ""
 }
